@@ -30,9 +30,7 @@ function renderChat() {
       <!-- Header -->
       <div class="chat-header">
         <div class="chat-header-title">
-          <div class="buddy-placeholder" style="width:44px;height:44px;border-radius:50%">
-            <div class="buddy-placeholder-label">buddy</div>
-          </div>
+          <img src="ai chat 3.png" style="width:44px;height:44px;border-radius:50%;object-fit:cover">
           <div>
             <div class="chat-name">Your Buddy</div>
             <div class="chat-status">Ask me anything about your health</div>
