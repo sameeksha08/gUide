@@ -58,7 +58,7 @@ function renderLanding() {
           <div class="landing-partner-label">In partnership with</div>
           <!-- Replace this placeholder with your Sanitarium logo image -->
           <a href="https://www.sanitarium.com" target="_blank" class="sanitarium-logo-placeholder" title="Visit Sanitarium">
-            <div class="sanitarium-logo-placeholder-text">Sanitarium logo<br>image goes here<br>tap to visit site →</div>
+            <img src="LOGO.png" style="width:130px;height:44px;object-fit:contain">
           </a>
         </div>
 
