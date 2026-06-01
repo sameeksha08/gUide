@@ -1,5 +1,4 @@
 /* ===== CSS VARIABLES ===== */
-/* ===== CSS VARIABLES ===== */
 :root {
   --teal: #0ea5b0;
   --teal-light: #e0f7f8;
@@ -32,7 +31,15 @@
 button { border: none; cursor: pointer; font-family: var(--font-body); }
 input, textarea { font-family: var(--font-body); }
 
-/* ===== PHONE SHELL — standard 390x844 ===== */
+/* ===== PHONE SHELL ===== */
+/* Desktop: centred phone frame. Mobile: fills the whole screen. */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #0b1a2e;
   display: flex;
@@ -42,6 +49,7 @@ body {
   font-family: var(--font-body);
 }
 
+/* Desktop shell */
 #phone-shell {
   width: 390px;
   height: 844px;
@@ -52,6 +60,21 @@ body {
   box-shadow: 0 0 0 8px #1a2a3a, 0 30px 80px rgba(0,0,0,0.6);
   display: flex;
   flex-direction: column;
+}
+
+/* On real phones — fill the full viewport, no fake shell */
+@media (max-width: 430px) {
+  body {
+    background: var(--cream);
+    align-items: flex-start;
+  }
+
+  #phone-shell {
+    width: 100vw;
+    height: 100dvh; /* dynamic viewport height — respects browser chrome */
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 #status-bar {
@@ -65,6 +88,11 @@ body {
   font-weight: 600;
   color: rgba(255,255,255,0.8);
   font-family: var(--font-body);
+}
+
+/* Hide the fake status bar on real phones — the OS has its own */
+@media (max-width: 430px) {
+  #status-bar { display: none; }
 }
 
 .status-time { font-weight: 700; font-size: 12px; }
@@ -104,6 +132,7 @@ body {
   border-top: 1px solid var(--border);
   padding: 6px 0 10px;
   flex-shrink: 0;
+  padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
 }
 
 .nav-item {
@@ -383,6 +412,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
 }
 
 .onboarding-top {
@@ -417,6 +447,8 @@ body {
 .onboarding-content {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   padding: 6px 20px 16px;
   scrollbar-width: none;
   min-height: 0;
@@ -539,8 +571,10 @@ body {
 .app-connect-item.connected .app-connect-status { color: var(--teal); }
 
 .onboarding-footer {
-  padding: 8px 20px 16px;
+  padding: 10px 20px 20px;
   flex-shrink: 0;
+  background: var(--cream);
+  padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
 }
 
 .btn-continue {
