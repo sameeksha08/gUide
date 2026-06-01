@@ -28,9 +28,7 @@ function renderHome() {
         </div>
 
         <div class="ask-buddy-banner mt-14" onclick="navigate('chat')">
-          <div class="buddy-img-placeholder" style="width:62px;height:62px">
-            <div class="buddy-img-placeholder-text">buddy art here</div>
-          </div>
+          <img src="ai chat 3.png" style="width:44px;height:44px;border-radius:50%;object-fit:cover">
           <div style="flex:1">
             <div class="ask-buddy-title">Ask your buddy anything</div>
             <div class="ask-buddy-sub">Why am I tired? What should I eat today?</div>
