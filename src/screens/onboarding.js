@@ -197,12 +197,12 @@ function stepCycleTracking() {
 
 function stepLifeStage() {
   const opts = [
-    {value:'adolescence',emoji:'🌱',label:'Adolescence',hint:'The body is still developing — nutrition needs are high'},
-    {value:'early_adulthood',emoji:'⚡',label:'Early Adulthood',hint:'Peak energy years — building healthy foundations'},
-    {value:'adulthood',emoji:'🌿',label:'Adulthood',hint:'Balancing career, family, and long-term health'},
-    {value:'perimenopause',emoji:'🌀',label:'Perimenopause / Menopause',hint:'Hormonal shifts — nutrition plays a major role'},
-    {value:'post_menopause',emoji:'🌸',label:'Post-Menopause',hint:'New chapter — bone density, heart health, energy focus'},
-    {value:'senior',emoji:'🌳',label:'Senior',hint:'Longevity, mobility, and staying strong'},
+    {value:'adolescence',emoji:'🌱',label:'Adolescence'},
+    {value:'early_adulthood',emoji:'⚡',label:'Early Adulthood'},
+    {value:'adulthood',emoji:'🌿',label:'Adulthood'},
+    {value:'perimenopause',emoji:'🌀',label:'Perimenopause / Menopause'},
+    {value:'post_menopause',emoji:'🌸',label:'Post-Menopause'},
+    {value:'senior',emoji:'🌳',label:'Senior'},
   ];
   return `
     <div class="animate-in">
@@ -212,7 +212,7 @@ function stepLifeStage() {
         ${opts.map(o=>`
           <button class="option-chip ${USER.lifeStage===o.value?'selected':''}" data-group="lifestage" data-value="${o.value}" onclick="selectSingle(this,'lifestage')">
             <span class="option-emoji">${o.emoji}</span>
-            <span class="option-text"><span class="option-label">${o.label}</span><span class="option-hint">${o.hint}</span></span>
+            <span class="option-text"><span class="option-label">${o.label}</span></span>
           </button>`).join('')}
       </div>
     </div>`;

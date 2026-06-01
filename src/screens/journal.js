@@ -4,6 +4,7 @@ function renderJournal() {
 
   return `
     <div class="screen">
+      ${renderDemoBar()}
       <div class="journal-header">
         <div class="journal-title">My Journal 📓</div>
         ${USER.journalStreak > 0 ? `

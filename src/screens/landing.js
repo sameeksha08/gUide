@@ -55,8 +55,6 @@ function renderLanding() {
 
         <!-- SANITARIUM PARTNER -->
         <div class="landing-partner-bar">
-          <div class="landing-partner-label">In partnership with</div>
-          <!-- Replace this placeholder with your Sanitarium logo image -->
           <a href="https://www.sanitarium.com" target="_blank" class="sanitarium-logo-placeholder" title="Visit Sanitarium">
             <img src="LOGO.png" style="width:130px;height:44px;object-fit:contain">
           </a>

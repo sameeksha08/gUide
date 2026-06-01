@@ -1,4 +1,5 @@
 /* ===== CSS VARIABLES ===== */
+/* ===== CSS VARIABLES ===== */
 :root {
   --teal: #0ea5b0;
   --teal-light: #e0f7f8;
@@ -976,3 +977,29 @@ body {
 .empty-state { text-align:center; padding:32px 20px; color:var(--text-light); }
 .empty-state-icon { font-size:36px; margin-bottom:10px; }
 .empty-state-text { font-size:12px; line-height:1.5; }
+
+/* ===== DEMO MODE BACK BAR ===== */
+.demo-back-bar {
+  background: var(--navy);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.demo-back-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 500;
+}
+
+.demo-back-btn {
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: var(--font-body);
+}

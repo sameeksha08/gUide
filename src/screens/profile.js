@@ -18,7 +18,7 @@ function renderProfile() {
   return `
     <div class="screen profile-screen">
       <div class="profile-header" style="position:relative">
-        <button class="profile-close-btn" onclick="history.back ? history.back() : navigate('home')">✕</button>
+        <button class="profile-close-btn" onclick="navigate(typeof previousScreen !== 'undefined' ? previousScreen : 'home')">✕</button>
         <div class="profile-avatar-circle">${name.charAt(0).toUpperCase()||'👤'}</div>
         <div class="profile-name">${name}</div>
         <div class="profile-sub">${USER.lifeStage?getLifeStageLabel(USER.lifeStage)+' · ':''} ${USER.culturalFood&&USER.culturalFood!=='none'?getCultureLabel(USER.culturalFood)+' · ':''} ${USER.dietStyle||'gUide member'}</div>

@@ -1,6 +1,8 @@
 let currentScreen = 'landing';
+let previousScreen = 'home';
 
 function navigate(screen) {
+  previousScreen = currentScreen;
   currentScreen = screen;
   const screens = {
     landing: renderLanding,
@@ -13,6 +15,16 @@ function navigate(screen) {
   };
   const renderer = screens[screen];
   if (renderer) document.getElementById('app').innerHTML = renderer();
+}
+
+// Shows a "create account" bar when user is exploring in demo mode
+function renderDemoBar() {
+  if (USER.name !== 'Demo') return '';
+  return `
+    <div class="demo-back-bar">
+      <span class="demo-back-label">You're exploring gUide</span>
+      <button class="demo-back-btn" onclick="navigate('landing')">← Create account</button>
+    </div>`;
 }
 
 // Bottom nav — no profile tab
