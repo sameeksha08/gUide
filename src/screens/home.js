@@ -28,7 +28,9 @@ function renderHome() {
         </div>
 
         <div class="ask-buddy-banner mt-14" onclick="navigate('chat')">
-          <img src="ai chat 3.png" style="width:44px;height:44px;border-radius:50%;object-fit:cover">
+          <div class="buddy-img-placeholder" style="width:62px;height:62px">
+            <div class="buddy-img-placeholder-text">buddy art here</div>
+          </div>
           <div style="flex:1">
             <div class="ask-buddy-title">Ask your buddy anything</div>
             <div class="ask-buddy-sub">Why am I tired? What should I eat today?</div>
@@ -90,19 +92,22 @@ function openRecipeModal(id, mealData) {
   overlay.className = 'modal-overlay';
   overlay.onclick = (e)=>{ if(e.target===overlay) overlay.remove(); };
   overlay.innerHTML = `
-    <div class="recipe-modal">
+    <div style="width:100%;position:relative">
+      <!-- Close button sits OUTSIDE the scroll container so it never scrolls away -->
       <button class="recipe-modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
-      <div class="recipe-modal-emoji">${meal.emoji}</div>
-      <div class="recipe-modal-name">${meal.name}</div>
-      <div class="recipe-modal-why">${meal.why||''}</div>
-      ${meal.isSanitarium?`<div class="sanitarium-tag"><span class="sanitarium-tag-cross">✚</span><span class="sanitarium-tag-text">Sanitarium Health & Wellbeing${meal.id!=='crush_it'?' · Vegie Delights':''}</span></div>${meal.recipe.note?`<p style="font-size:11px;color:var(--text-mid);line-height:1.5;margin-bottom:12px">${meal.recipe.note}</p>`:'`'}` : ''}
-      <div class="recipe-section-label">Ingredients</div>
-      <ul class="recipe-ingredients">
-        ${meal.recipe.ingredients.map(ing=>`<li class="recipe-ingredient ${ing.sanitarium?'sanitarium-item':''}">${ing.text}${ing.sanitarium?` <span style="font-size:9px;font-weight:700;color:var(--gold-dark)">(Sanitarium)</span>`:''}</li>`).join('')}
-      </ul>
-      <div class="recipe-section-label">Method</div>
-      <div class="recipe-steps">
-        ${meal.recipe.steps.map((step,i)=>`<div class="recipe-step"><div class="recipe-step-num">${i+1}</div><div class="recipe-step-text">${step}</div></div>`).join('')}
+      <div class="recipe-modal">
+        <div class="recipe-modal-emoji">${meal.emoji}</div>
+        <div class="recipe-modal-name">${meal.name}</div>
+        <div class="recipe-modal-why">${meal.why||''}</div>
+        ${meal.isSanitarium ? `<div class="sanitarium-tag"><span class="sanitarium-tag-cross">✚</span><span class="sanitarium-tag-text">Sanitarium Health & Wellbeing${meal.id!=='crush_it'?' · Vegie Delights':''}</span></div>${meal.recipe.note?`<p style="font-size:11px;color:var(--text-mid);line-height:1.5;margin-bottom:12px">${meal.recipe.note}</p>`:''}` : ''}
+        <div class="recipe-section-label">Ingredients</div>
+        <ul class="recipe-ingredients">
+          ${meal.recipe.ingredients.map(ing=>`<li class="recipe-ingredient ${ing.sanitarium?'sanitarium-item':''}">${ing.text}${ing.sanitarium?` <span style="font-size:9px;font-weight:700;color:var(--gold-dark)">(Sanitarium)</span>`:''}</li>`).join('')}
+        </ul>
+        <div class="recipe-section-label">Method</div>
+        <div class="recipe-steps">
+          ${meal.recipe.steps.map((step,i)=>`<div class="recipe-step"><div class="recipe-step-num">${i+1}</div><div class="recipe-step-text">${step}</div></div>`).join('')}
+        </div>
       </div>
     </div>`;
   document.getElementById('app').appendChild(overlay);

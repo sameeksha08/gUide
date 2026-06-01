@@ -485,11 +485,11 @@ body {
 .demo-back-btn { background:var(--gold); color:var(--navy); font-size:12px; font-weight:700; padding:6px 14px; border-radius:20px; font-family:var(--font-body); }
 
 /* ===== MODAL ===== */
-.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:100; display:flex; align-items:flex-end; }
-.recipe-modal { background:var(--cream); border-radius:var(--radius-xl) var(--radius-xl) 0 0; width:100%; max-height:85vh; overflow-y:auto; scrollbar-width:none; padding:22px 18px; padding-bottom:max(28px, env(safe-area-inset-bottom)); animation:slideUp 0.3s ease; position:relative; }
+.modal-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.5); z-index:100; display:flex; align-items:flex-end; overflow:hidden; }
+.recipe-modal { background:var(--cream); border-radius:var(--radius-xl) var(--radius-xl) 0 0; width:100%; max-height:600px; overflow-y:auto; scrollbar-width:none; padding:20px 18px 28px; animation:slideUp 0.3s ease; position:relative; }
 .recipe-modal::-webkit-scrollbar { display:none; }
 @keyframes slideUp { from { transform:translateY(100%); } to { transform:translateY(0); } }
-.recipe-modal-close { position:absolute; top:14px; right:16px; background:var(--cream-dark); border-radius:50%; width:32px; height:32px; font-size:16px; color:var(--text-mid); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.recipe-modal-close { position:absolute; top:12px; right:14px; background:var(--cream-dark); border-radius:50%; width:32px; height:32px; font-size:16px; color:var(--text-mid); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:20; border:none; }
 .recipe-modal-emoji { font-size:40px; margin-bottom:10px; }
 .recipe-modal-name { font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--navy); margin-bottom:4px; }
 .recipe-modal-why { font-size:12px; color:var(--teal-dark); font-weight:600; margin-bottom:16px; }
